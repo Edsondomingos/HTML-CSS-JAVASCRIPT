@@ -4,20 +4,25 @@
 }
 
 body {
-	background-color: #;
 	font-family: Arial;
 	background: linear-gradient(to right, rgba(200,0,200, 0.7), pink);
 	text-shadow: 1px 1px 1px black;
 }
 
-main {
+div {
+	display: flex;
+	flex-direction: column;
 	width: 400px;
-	height: 700px;
 	margin: auto;
+}
+
+main {
+	
+	
 	margin-top: 100px;
 	text-align: center;
 	padding: 5px;	
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 }
 
 main header {
@@ -29,21 +34,34 @@ main header img {
 	border-radius: 50%;
 }
 
-@media and screen(max-width: 412px){
+@media(max-width: 412px){
+	div {
+		width: 250px;
+		display: contents;
+	}
+
 	main {
-		width: 300px;
+		width: 250px;
+
+	}
+
+	main header {
+		width: 250px;
+		margin: auto;
+		text-align: center;
 	}
 
 	#contato {
-		width: 250px;
+		width: 200px;
 	}
 
 	#links a {
-		width: 250px;
+		width: 190px;
 	}
 
-	footer {
-		width: 300px;
+	div footer {
+		text-align: center;
+		font-size: 10px;
 	}
 }
 
@@ -86,12 +104,12 @@ a:hover {
 }
 
 footer {
-	height: 30px;
 	text-align: center;
-	background-color: #555;
+	border-top: 1px solid #ccc;
 	padding: 20px;
 	color: #fff;
 	bottom: 0px;
+	font-weight: bolder;
 }
 
 footer a {
