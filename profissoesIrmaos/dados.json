@@ -14,7 +14,7 @@
 		},
 		{
 			"nome": "Edson",
-			"profissao": "Programador junior/Instrutor informática/Criador pequenos sites, "
+			"profissao": "Programador junior/Instrutor informática/Criador pequenos sites"
 		},
 		{
 			"nome": "Maria José",
@@ -47,6 +47,10 @@
 		{
 			"nome": "Ruan Rodrigues",
 			"profissao": "ASG/Garçom"
+		},
+		{
+			"nome": "Janaina Felix",
+			"profissao": "Designer Gráfica"
 		}
 	]
 }
