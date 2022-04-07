@@ -1,0 +1,50 @@
+body {
+    background: linear-gradient(to bottom, rgb(193, 211, 226), white);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    width: 70%;
+    margin: auto;
+}
+
+#pagina {
+    font-size: 30px;
+    text-decoration: none;
+}
+#pagina:hover {
+    color: #f00;
+    
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #000;
+}
+
+article {
+    background-color: #fff;
+    border: 2px solid blueviolet;
+    border-radius: 10px;
+    /* color: white; */
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+p::first-line {
+    font-size: 30px;
+}
+
+footer {
+    border-top: 1px solid #000;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+footer a:hover {
+    color: #f00;
+    text-decoration: none;
+}
