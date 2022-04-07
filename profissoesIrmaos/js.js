@@ -4,7 +4,7 @@ function elemento(dados){
 	document.querySelector('section').appendChild(article);
 }
 
-fetch("http://127.0.0.1:5500/dados.json")
+fetch("https://profissoesramocanguaretama.vercel.app/dados.json")
 .then(
 	response => {
 		response.json().then(data => {
