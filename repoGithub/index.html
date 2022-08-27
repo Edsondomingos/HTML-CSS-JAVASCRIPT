@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Repositorios Github</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                // background: #000;
+            }
+            form {
+                text-align: center;
+            }
+            input {
+                padding: 10px;
+                width: 200px;
+            }
+            button {
+                padding: 10px;
+                background: #212121;
+                color: #fff;
+                width: 100px;
+                margin: 10px 0;
+                border-radius: 10px;
+            }
+            img {
+                display: none;
+                width: 200px;
+                margin: 10px auto;
+                border-radius: 50%;
+            }
+            footer {
+                border-top: 1px solid #ccc;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <form id='form'>
+            <input type='text' id='input' placeholder="Digite o nome do usuario"/> <br/>
+            <button type=submit>Procurar</button>
+        </form>
+
+        <img src="" id='img'/>
+        <p id='info'>Procure usuarios do Github e encontre rapido!</p>
+        
+        <script>
+            let form = document.getElementById('form')
+            let usuario = document.getElementById('input')
+            let img = document.getElementById('img')
+            let info = document.getElementById('info')
+            
+            form.addEventListener('submit', e => {
+                e.preventDefault()
+                if (usuario.value != ''){
+                fetch(`https://api.github.com/users/${usuario.value}`)
+                    .then(response => {
+                        response.json().then(data => {
+                            if (data.avatar_url == undefined){
+                                img.style.display = 'none'
+                                info.innerHTML = 'Não existe usuario com esse nome'
+                            } else {
+                            img.style.display = 'block'
+                            img.src = data.avatar_url
+                            info.style.display = 'block'
+                            info.innerHTML = `Nome: ${data.name}  <br>
+                                                Bio: ${data.bio}  <br>
+                                                Local: ${data.location} <br>
+                                                Seguidores: ${data.followers} <br>
+                                                seguindo: ${data.following} <br>
+                                                Repositorios púlicos:  ${data.public_repos} <br>
+                                                <a href='https://github.com/${data.login}' target='_blank'>Ir para o Perfil de ${data.name}</a> <br>
+                                                `
+                            }    
+                        })
+                    })
+                } else if (usuario.value == ''){
+                        img.style.display = 'none'
+                        info.innerHTML = 'Procure por algum algo'
+                }
+            })
+        </script>
+
+        <footer>
+            <p>Desenvolvido por <a href='https://www.linkedin.com/in/edson-domingos' target='_blank'>Edson Domingos</a></p>
+        </footer>
+    </body>
+</html>
