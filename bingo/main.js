@@ -29,7 +29,7 @@ const puxaNumero = () => {
         novaSection2.innerHTML = '<h2>Numeros Chamados</h2>'
 
         // Mostra os numeros chamados
-        numerosChamados.sort().forEach(f => {
+        numerosChamados.forEach(f => {
             let strong = document.createElement('strong')
             strong.textContent = f
             article2.appendChild(strong)
