@@ -12,6 +12,7 @@ const puxaNumero = () => {
         let indice = Math.floor(Math.random() * numerosDoJogo.length)
         console.log(indice)
         numerosChamados.push(numerosDoJogo[indice])
+        numerosChamados.sort((a, b) => a - b)
         numerosDoJogo.splice(indice, 1)
 
         const sections = document.querySelectorAll('section')
