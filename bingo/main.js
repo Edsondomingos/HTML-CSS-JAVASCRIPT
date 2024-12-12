@@ -63,6 +63,6 @@ btnNum.addEventListener('click', () => {
     puxaNumero()
 })
 
-window.addEventListener('beforeunload', () => {    
-    confirm('Isso irá recomcar o Bingo')
+window.addEventListener('beforeunload', (event) => {    
+    event.preventDefault()
 })
