@@ -8,13 +8,15 @@
 </head>
 <body>
 
-    <button class="outra-cartela" onclick="window.location.reload();">Outra cartela</button>
     <fieldset>
         <legend>Minha Cartela</legend>
         <section class="meus-numeros" title="meus numeros" aria-label="meus numeros"></section>
     </fieldset>
-    <button class="escolher" onclick="cartelaEscolhida();">Quero essa cartela</button><br>
-    <button class="bater" onclick="bater();">Bater</button><br>
+    <div class="btns">
+        <button class="outra-cartela" onclick="window.location.reload();">Quero Outra</button>
+        <button class="escolher" onclick="cartelaEscolhida();">Quero essa</button><br>
+        <button class="bater" onclick="bater();">Bater</button><br>
+    </div>
 
     <script src="cartela.js"></script>
 </body>
