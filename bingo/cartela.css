@@ -1,5 +1,7 @@
 h1 {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: blue;
     Color: #FFF;
     /* width: 70%; */
@@ -34,6 +36,7 @@ button {
     padding: 10px;
     border-radius: 10px;
     font-weight: bold;
+    font-size: 1.2em;
 }
 
 .outra-cartela {
