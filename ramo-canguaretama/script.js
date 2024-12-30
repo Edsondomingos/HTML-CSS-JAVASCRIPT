@@ -1,14 +1,15 @@
 function enviar(url) {
     if (navigator.share) {
         navigator.share({
+            url: url,
             title: 'Convite',
-            url: url
+            text: 'Convite para discursar na Sacramental'
         })
             .then(() => alert('Enviar?'))
             .catch((e) => console.log(e))
     } else {
         navigator.clipboard.writeText(url)
-            .then(() => alert('Convite copiado. Cole para na mensagem para o convidado'))
+            .then(() => alert('Convite copiado. Cole na mensagem para o convidado'))
             .catch((e) => console.log(e))
     }
 }
