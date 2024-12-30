@@ -1,0 +1,20 @@
+form {
+    width: 90%;
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.campos {
+    padding: 7px;
+}
+
+button {
+    width: 50%;
+    margin: 0 25%;
+    padding: 10px;
+    font-size: 1em;
+}
