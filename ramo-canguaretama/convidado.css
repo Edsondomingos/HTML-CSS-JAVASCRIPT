@@ -1,0 +1,30 @@
+.main {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    border: 1px dashed #000;
+    padding: 10px;
+    height: 90vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.citacao {
+    width: 70%;
+    margin: 50px 15%;
+}
+
+.convite {
+    line-height: 30px;
+    text-indent: 30px;
+}
+
+.agradecimento {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    margin: auto;
+}
