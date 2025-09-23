@@ -40,3 +40,22 @@ button {
     box-shadow: 3px 3px 5px #aaa;
     margin: 20px 0;
 }
+
+.conferir-ver {
+    position: absolute;
+    width: 80vw;
+    height: 80vh;
+    margin: 10%;
+    display: none;
+    /* z-index: 2; */
+    background-color: rgb(248, 255, 255);
+}
+
+.conferir-ver button {
+    font-weight: bolder;
+    background: linear-gradient(to right, #140202, rgba(116, 22, 38, 0.884));
+    color: rgb(238, 233, 228);
+    padding: 10px;
+    max-width: 20%;
+    margin: auto;
+}

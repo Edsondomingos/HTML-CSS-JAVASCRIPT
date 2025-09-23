@@ -1,5 +1,10 @@
 const body = document.querySelector('body')
-const btnNum = document.querySelector('button')
+const btnNum = document.querySelector('#puxar')
+const btnConferir = document.querySelector('#conferir')
+const sectionNumerosChamados = document.querySelector('.conferir-ver')
+const btnNumerosChamados = document.querySelector('#conferir-fechar')
+const articleNumerosChamados = document.querySelector('#numeros-chamados')
+
 let numerosDoJogo = []
 let numerosChamados = []
 
@@ -12,7 +17,7 @@ const puxaNumero = () => {
         let indice = Math.floor(Math.random() * numerosDoJogo.length)
         console.log(indice)
         numerosChamados.push(numerosDoJogo[indice])
-        numerosChamados.sort((a, b) => a - b)
+        // numerosChamados.sort((a, b) => a - b)
         numerosDoJogo.splice(indice, 1)
 
         const sections = document.querySelectorAll('section')
@@ -37,7 +42,7 @@ const puxaNumero = () => {
             novaSection2.appendChild(article2)
             body.appendChild(novaSection2)
         })
-        
+
         // Mostra os numeros ainda diponiveis
         numerosDoJogo.forEach(e => {
             let strong = document.createElement('strong')
@@ -64,6 +69,16 @@ btnNum.addEventListener('click', () => {
     puxaNumero()
 })
 
-window.addEventListener('beforeunload', (event) => {    
+btnConferir.addEventListener('click', () => {
+    sectionNumerosChamados.style.display = 'block'
+    // numerosChamados.sort((a, b) => a - b)
+    articleNumerosChamados.innerHTML = numerosChamados.sort((a, b) => a - b)
+})
+
+btnNumerosChamados.addEventListener('click', () => {
+    sectionNumerosChamados.style.display = 'none'
+})
+
+window.addEventListener('beforeunload', (event) => {
     event.preventDefault()
 })
