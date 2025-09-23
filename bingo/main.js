@@ -71,8 +71,8 @@ btnNum.addEventListener('click', () => {
 
 btnConferir.addEventListener('click', () => {
     sectionNumerosChamados.style.display = 'block'
-    // numerosChamados.sort((a, b) => a - b)
-    articleNumerosChamados.innerHTML = numerosChamados.sort((a, b) => a - b)
+    let sortNumerosChamados = [...numerosChamados]
+    articleNumerosChamados.innerHTML = sortNumerosChamados.sort((a, b) => a - b)
 })
 
 btnNumerosChamados.addEventListener('click', () => {
