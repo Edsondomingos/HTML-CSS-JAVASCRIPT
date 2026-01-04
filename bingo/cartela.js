@@ -8,7 +8,7 @@ let minhaCartela = JSON.parse(localStorage.getItem('minhacartela'))
 if (minhaCartela == null) { // Se NÃO tiver numeros ja escolhidos
     console.log(minhaCartela)
     while (numeros.length < 12) {
-        let numero = Math.floor(Math.random() * 90) + 1
+        let numero = Math.floor(Math.random() * 100) + 1
         if (numeros.indexOf(numero) == -1) {
             numeros.push(numero)
         }
