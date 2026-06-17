@@ -1,37 +1,245 @@
 <!DOCTYPE html>
 <html lang="pt-br" translate="no">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convite discurso</title>
-    <link rel="stylesheet" href="index.css">
-</head>
+    <title>Convite Discursante Sacramental</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET E BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #f7f3ee 0%, #e8e0d8 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 1.5rem;
+        }
+
+        /* ===== CARTÃO PRINCIPAL ===== */
+        form {
+            width: 100%;
+            max-width: 680px;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                0 8px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+        }
+
+        form:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ===== TÍTULO ===== */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 2.1rem;
+            color: #2c3e4e;
+            text-align: center;
+            margin-bottom: 2.2rem;
+            letter-spacing: -0.3px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: #b8a28c;
+            margin: 0.6rem auto 0;
+            border-radius: 4px;
+        }
+
+        /* ===== CAMPOS ===== */
+        .campos {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.6rem;
+            padding: 0;
+        }
+
+        .campos label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #3d4f62;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .campos label::before {
+            content: '✦';
+            color: #b8a28c;
+            font-size: 0.8rem;
+        }
+
+        .campos input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1.5px solid #e2dcd5;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            background: #fcfaf8;
+            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+            outline: none;
+            color: #1f2e3a;
+        }
+
+        .campos input:focus {
+            border-color: #b8a28c;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(184, 162, 140, 0.15);
+        }
+
+        .campos input::placeholder {
+            color: #b0a69b;
+            font-weight: 300;
+        }
+
+        /* ===== BOTÃO ===== */
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.9rem;
+            margin-top: 1.2rem;
+            background: #2c3e4e;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.15s, box-shadow 0.25s;
+            box-shadow: 0 8px 20px rgba(44, 62, 78, 0.20);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background: #1f3345;
+            transform: scale(1.01);
+            box-shadow: 0 12px 28px rgba(44, 62, 78, 0.30);
+        }
+
+        button[type="submit"]:active {
+            transform: scale(0.97);
+        }
+
+        button[type="submit"]::after {
+            content: '→';
+            font-size: 1.4rem;
+            transition: transform 0.2s;
+        }
+
+        button[type="submit"]:hover::after {
+            transform: translateX(6px);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 480px) {
+            form {
+                padding: 2rem 1.5rem;
+                border-radius: 24px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .campos input {
+                padding: 0.7rem 0.9rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ===== ACESSIBILIDADE ===== */
+        .campos input:focus-visible {
+            outline: 2px solid #b8a28c;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
 <body>
 
-    <form>
+    <form id="formConvite">
         <h1>Convite Discursante Sacramental</h1>
-        <p class='campos'>
-            <label for="nome">Convidado:</label> <input id='nome' type="text" required/>
-        </p>
-        <p class='campos'>
-            <label for="data">Data:</label> <input id='data' type="date" required/>
-        </p>
-        <p class='campos'>
-            <label for="tema">Tema:</label> <input type="text" id='tema' required/>
-        </p>
-        <p class='campos'>
-            <label for="tempo">Tempo:</label> <input id='tempo' type="number" required/>
-        </p>
-        <p class='campos'>
-            <label for="discursante">1º/2º/3º Orador:</label> <input id='discursante' type="number" required/>
-        </p>
+
+        <div class="campos">
+            <label for="nome">Convidado</label>
+            <input id="nome" type="text" required placeholder="Nome completo">
+        </div>
+
+        <div class="campos">
+            <label for="data">Data</label>
+            <input id="data" type="date" required>
+        </div>
+
+        <div class="campos">
+            <label for="tema">Tema</label>
+            <input type="text" id="tema" required placeholder="Assunto do discurso">
+        </div>
+
+        <div class="campos">
+            <label for="tempo">Tempo (minutos)</label>
+            <input id="tempo" type="number" required placeholder="Ex: 15" min="1" max="30">
+        </div>
+
+        <div class="campos">
+            <label for="discursante">1º / 2º / 3º Orador</label>
+            <input id="discursante" type="number" required placeholder="1, 2 ou 3" min="1" max="3">
+        </div>
 
         <button type="submit">Enviar Convite</button>
     </form>
 
-    <script src="script.js"></script>
+    <script>
+        // ===== Código JavaScript fornecido =====
+        function enviar(url) {
+            if (navigator.share) {
+                navigator.share({
+                    url: url,
+                    title: 'Convite',
+                    text: 'Convite para discursar na Sacramental'
+                })
+                    .then(() => alert('Enviar?'))
+                    .catch((e) => console.log(e))
+            } else {
+                navigator.clipboard.writeText(url)
+                    .then(() => alert('Convite copiado. Cole na mensagem para o convidado'))
+                    .catch((e) => console.log(e))
+            }
+        }
+
+        const form = document.querySelector('form')
+        const inputs = document.querySelectorAll('input')
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+            enviar(encodeURI(`${window.location.origin}/HTML-CSS-JAVASCRIPT/ramo-canguaretama/convidado.html?convidado=${inputs[0].value}&data=${inputs[1].value}&tema=${inputs[2].value}&tempo=${inputs[3].value}&orador=${inputs[4].value}`))
+            // inputs.forEach(input => console.log(input.value))
+        })
+    </script>
 
 </body>
 </html>

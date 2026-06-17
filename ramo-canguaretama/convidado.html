@@ -4,32 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convite para Discursar</title>
-    <link rel="stylesheet" href="convidado.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET E BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #f7f3ee 0%, #e8e0d8 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* ===== CARTÃO PRINCIPAL ===== */
+        .main {
+            max-width: 780px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                0 8px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+        }
+
+        .main:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.10);
+        }
+
+        /* ===== TÍTULOS ===== */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 2.2rem;
+            color: #2c3e4e;
+            text-align: center;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.3px;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background: #b8a28c;
+            margin: 0.6rem auto 0;
+            border-radius: 4px;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-size: 1.8rem;
+            color: #1f3345;
+            text-align: center;
+            margin: 1.5rem 0 1rem;
+        }
+
+        /* ===== CITAÇÃO ===== */
+        .citacao {
+            background: #f5f0ea;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #3d4f62;
+            border-left: 6px solid #b8a28c;
+            margin: 1.5rem 0 2rem;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .citacao strong {
+            font-weight: 600;
+            color: #2c3e4e;
+        }
+
+        /* ===== CORPO DO CONVITE ===== */
+        .convite {
+            font-size: 1.05rem;
+            color: #2c3e4e;
+            background: #fcfaf8;
+            padding: 1.8rem 1.8rem;
+            border-radius: 20px;
+            border: 1px solid #ede8e0;
+            margin: 1.2rem 0;
+        }
+
+        .convite b {
+            color: #1f3345;
+            background: #e8e0d8;
+            padding: 0 6px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .convite b#nome-convidado {
+            font-size: 1.2rem;
+            background: #d4c9bc;
+            padding: 0 10px;
+        }
+
+        /* ===== AGRADECIMENTO FINAL ===== */
+        .agradecimento {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #4d5f72;
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 2px dashed #dcd3ca;
+            letter-spacing: 0.3px;
+        }
+
+        .agradecimento::before {
+            content: '🙏 ';
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 600px) {
+            .main {
+                padding: 1.8rem 1.2rem;
+                border-radius: 24px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .citacao {
+                font-size: 0.95rem;
+                padding: 1rem;
+            }
+            .convite {
+                font-size: 0.95rem;
+                padding: 1.2rem;
+            }
+        }
+
+        /* ===== UTILITÁRIO ===== */
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== ANIMAÇÃO DE ENTRADA SUAVE ===== */
+        .main {
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-    <section class='main'>
+    <section class="main">
         <h1>Convite Bispado Canguaretama</h1>
+
         <p class="citacao">
-            Lucas 4:18 <br />
+            <strong>Lucas 4:18</strong> <br />
             "O Espírito do Senhor está sobre mim, porquanto me ungiu para pregar o evangelho aos pobres, 
             enviou-me para curar os quebrantados de coração; para apregoar liberdade aos cativos e dar vista aos cegos; 
             para pôr em liberdade os oprimidos"
         </p>
-        <h2 id="nome-convidado"></h2>
-        <p class="convite">
-            O Bispado lhe convida para discursar no dia <b id="data"></b>,
-            Seu tema é <b id="tema"></b>.
-            Pedimos que se prepare com antecedência, lendo as escrituras, pedindo orientação
-            ao Pai Celestial, pesquisando sobre o tema e sempre se esforçando para fazer seu melhor. 
-            Você terá o tempo de <b id="tempo"></b> minutos para discursar e será o <b id="orador"></b>º orador.
-            Seja fiel ao seu tempo, não ultrape ou seja muito breve. Caso precise ser mais curto ou mais longo, comunicaremos no dia.
-            Muito obrigado por aceitar este convite e pela disposição de servir ao Senhor. Ele te ama e vai lhe guiar!
-        </p>
-        
-        <p class='agradecimento'>Obrigado pela sua dedicação ao Ramo Canguaretama</p>
 
+        <h2 id="nome-convidado">—</h2>
+
+        <div class="convite">
+            <p>
+                O Bispado lhe convida para discursar no dia <b id="data">—</b>,
+                Seu tema é <b id="tema">—</b>.
+            </p>
+            <p style="margin-top: 0.8rem;">
+                Pedimos que se prepare com antecedência, lendo as escrituras, pedindo orientação
+                ao Pai Celestial, pesquisando sobre o tema e sempre se esforçando para fazer seu melhor. 
+                Você terá o tempo de <b id="tempo">—</b> minutos para discursar e será o <b id="orador">—</b>º orador.
+            </p>
+            <p style="margin-top: 0.8rem;">
+                Seja fiel ao seu tempo, não ultrapasse ou seja muito breve. Caso precise ser mais curto ou mais longo, comunicaremos no dia.
+                Muito obrigado por aceitar este convite e pela disposição de servir ao Senhor. Ele te ama e vai lhe guiar!
+            </p>
+        </div>
+
+        <p class="agradecimento">Obrigado pela sua dedicação ao Ramo Canguaretama</p>
+
+        
     </section>
 
-    <script src="convidado.js"></script>
+    <script>
+        // ===== Código JavaScript fornecido (com pequena melhoria de segurança) =====
+        const url = window.location.href;
+        const urlParams = new URLSearchParams(new URL(url).search);
+
+        const convidado = urlParams.get('convidado');
+        const dataRaw = urlParams.get('data');
+        const tema = urlParams.get('tema');
+        const tempo = urlParams.get('tempo');
+        const orador = urlParams.get('orador');
+
+        // Formata a data se existir
+        let dataFormatada = '—';
+        if (dataRaw) {
+            try {
+                const partes = dataRaw.split('-');
+                if (partes.length === 3) {
+                    dataFormatada = partes.reverse().join('/');
+                } else {
+                    dataFormatada = dataRaw;
+                }
+            } catch {
+                dataFormatada = dataRaw;
+            }
+        }
+
+        // Preenche os elementos ou mostra "—" caso faltem
+        document.querySelector('#nome-convidado').textContent = convidado || '—';
+        document.querySelector('#data').textContent = dataFormatada;
+        document.querySelector('#tema').textContent = tema || '—';
+        document.querySelector('#tempo').textContent = tempo || '—';
+        document.querySelector('#orador').textContent = orador || '—';
+
+        // Se algum campo essencial estiver vazio, podemos mostrar um aviso sutil no console
+        if (!convidado || !dataRaw || !tema || !tempo || !orador) {
+            console.warn('Alguns parâmetros estão faltando na URL. Verifique o link gerado.');
+        }
+    </script>
 </body>
 </html>
