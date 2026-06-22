@@ -176,6 +176,16 @@
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+
+        a, span {
+            background: rgb(148, 245, 245);
+            color:rgb(119, 110, 110);
+            padding: 3px;
+            text-shadow: 1px 1px 1px #000;
+            border: 1px dashed red;
+            text-align: center;
+            font-family: sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -194,8 +204,9 @@
         <div class="convite">
             <p>
                 O Bispado lhe convida para discursar no dia <b id="data">—</b>,
-                Seu tema é <b id="tema">—</b>.
+                Seu tema é <span id="tema-container">—</span>.
             </p>
+
             <p style="margin-top: 0.8rem;">
                 Pedimos que se prepare com antecedência, lendo as escrituras, pedindo orientação
                 ao Pai Celestial, pesquisando sobre o tema e sempre se esforçando para fazer seu melhor. 
@@ -241,9 +252,32 @@
         // Preenche os elementos ou mostra "—" caso faltem
         document.querySelector('#nome-convidado').textContent = convidado || '—';
         document.querySelector('#data').textContent = dataFormatada;
-        document.querySelector('#tema').textContent = tema || '—';
+
+        // Tema: se vier como link, torna clicável; caso contrário, exibe como texto
+        const temaContainer = document.querySelector('#tema-container');
+        const temaValor = tema || '—';
+        const isProvavelLink = /^https?:\/\//i.test(temaValor) || /^mailto:/i.test(temaValor);
+
+        if (temaContainer) {
+            if (tema && isProvavelLink) {
+                const a = document.createElement('a');
+                a.href = temaValor;
+                a.textContent = temaValor;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.style.color = 'inherit';
+                a.style.textDecoration = 'underline';
+                temaContainer.innerHTML = '' + '(click no link 👉)';
+                temaContainer.appendChild(a);
+            } else {
+                temaContainer.textContent = temaValor;
+            }
+        }
+
+
         document.querySelector('#tempo').textContent = tempo || '—';
         document.querySelector('#orador').textContent = orador || '—';
+
 
         // Se algum campo essencial estiver vazio, podemos mostrar um aviso sutil no console
         if (!convidado || !dataRaw || !tema || !tempo || !orador) {
